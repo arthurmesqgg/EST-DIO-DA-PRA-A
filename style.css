@@ -22,6 +22,7 @@ body {
 
 /* ===== NAVBAR ===== */
 .navbar {
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);    
     position: fixed;
     top: 0; left: 0;
     width: 100%;
@@ -247,6 +248,7 @@ p {
 
 /* ===== REDES NO CARD ===== */
 .redes-card {
+    filter: brightness(1) invert(0);
     display: flex;
     justify-content: center;
     gap: 16px;
@@ -259,7 +261,7 @@ p {
     transition: transform 0.2s;
 }
 
-.card section a img:hover {
+.card section a img:hover {   
     transform: scale(1.1);
 }
 
@@ -275,7 +277,7 @@ p {
 }
 
 .redes-fixas img {
-    width: 105px;
+    width: 100px;
     cursor: pointer;
     transition: transform 0.2s ease;
 }
@@ -288,6 +290,7 @@ body.dark .insta-icon,
 body.dark .face-icon {
     filter: brightness(0) invert(1);
 }
+
 
 /* ===== LIGHTBOX ===== */
 .lightbox {
@@ -831,7 +834,7 @@ footer p {
     border-color: #aaa;
 }
 
-/* ===== CELULAR ===== */
+/* ===== CELULAR (apple) ===== */
 @media (max-width: 768px) {
 
     .navbar {
@@ -884,12 +887,15 @@ footer p {
 
 
     .galeria img {
-        border-radius: 0;
-        height: 200px;
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        height: 260px;
+        object-fit: cover;
+        border-radius: 10px;  
     }
 
     .card img {
-        border-radius: 0;
+        border-radius: 5px;
     }
 
     .slides img {
@@ -909,6 +915,10 @@ footer p {
 
     
     /* Footer */
+
+    footer p {
+    border-left: none;
+}
 
     .ft-grid {
         grid-template-columns: 1fr;
@@ -937,7 +947,9 @@ footer p {
     }
 
     .galeria {
-        grid-template-columns: 1fr;
+        border-radius: 5px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
     }
 
     .lightbox-img {
@@ -960,5 +972,144 @@ footer p {
 @media (max-width: 600px) {
     h1 { font-size: 32px; }
     h3 { font-size: 18px; }
+    p  { font-size: 15px; }
+}
+
+/* ===== CELULAR (samsung) ===== */
+@media (max-width: 360px) {
+
+    .navbar {
+        flex-wrap: wrap;
+        height: auto;
+        padding: 10px 16px;
+        gap: 4px;
+        align-items: center;
+    }
+
+    .navbar.shrink {
+        height: auto;
+        padding: 8px 16px;
+    }
+
+    .nav-left  { order: 1; flex-shrink: 0; }
+    .nav-right { order: 2; flex-shrink: 0; }
+
+    .nav-center {
+        order: 3;
+        position: static;
+        transform: none;
+        width: 100%;
+        justify-content: center;
+        gap: 16px;
+        flex-wrap: wrap;
+        padding: 4px 0 6px;
+    }
+
+    .nav-center a {
+        font-size: 10px;
+    }
+
+    .dropdown {
+        order: 4;
+        position: static;
+        width: 100%;
+        border-radius: 8px;
+        box-shadow: none;
+        padding: 10px 0;
+        justify-content: center;
+    }
+
+    .dropdown.aberto {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+
+    .galeria img {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        height: 260px;
+        object-fit: cover;
+        border-radius: 10px;        
+    }
+
+    .card img {
+        border-radius: 5px;
+    }
+
+    .slides img {
+        height: 320px;
+        border-radius: 0;
+    }
+
+    .redes-card {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    /* Footer */
+    
+    footer p {
+    border-left: none;
+}
+
+    .ft-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        text-align: center;
+    }
+
+    .ft-bottom {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    footer {
+        padding: 32px 20px 20px;
+    }
+
+
+    .container {
+        padding: 10px;
+        max-width: 100%;
+    }
+
+    .card {
+        padding: 15px 16px;
+    }
+
+    .galeria {
+        border-radius: 5px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+
+    .lightbox-img {
+        border-radius: 5px;
+        max-width: 95%;
+        max-height: 80%;
+    }
+
+    .fechar {
+        top: 10px;
+        right: 15px;
+        font-size: 30px;
+    }
+
+    .prev-img,
+    .next-img {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    h1 { font-size: 30px; }
+    h2 { font-size: 24px; }
+    h3 { font-size: 20px; }
     p  { font-size: 15px; }
 }
